@@ -16,6 +16,7 @@ class DockingStation
 	end
 
 	def release(bike)
+		raise 'invalid release request' if bike == nil 
 		raise 'No bikes available' if empty?
 		@bikes.delete(bike)
 	end

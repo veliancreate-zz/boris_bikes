@@ -52,4 +52,8 @@ describe DockingStation do
  		expect{ station.release(bike) }.to raise_error(RuntimeError, 'No bikes available')
  	end
 
+ 	it "should not release a bike if there's no argument passed" do
+ 		expect{ station.release(nil) }.to raise_error( 'invalid release request')
+ 	end
+
 end
