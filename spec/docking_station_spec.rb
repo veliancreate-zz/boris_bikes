@@ -8,6 +8,10 @@ describe DockingStation do
 	def fill_station(station)
 		20.times {station.dock(bike)}
 	end
+
+	def empty_station(station)
+		station.bike_count.times {station.release(bike)}
+	end
 	
 	it "should accept a bike" do
 		expect(station.bike_count).to eq(0)
@@ -41,6 +45,11 @@ describe DockingStation do
 
  	it "should know when its empty" do
  		expect(station).to be_empty
+ 	end
+
+ 	it "should not release a bike that is not there" do
+ 		empty_station station
+ 		expect{ station.release(bike) }.to raise_error(RuntimeError, 'No bikes available')
  	end
 
 end
