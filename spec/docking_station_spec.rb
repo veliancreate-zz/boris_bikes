@@ -38,4 +38,8 @@ describe DockingStation do
  	expect(station.available_bikes).to eq([bike])
  end
 
+ it "should know when its empty" do
+ 	expect(station).to be_empty
+ end
+
 end
