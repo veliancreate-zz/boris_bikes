@@ -3,9 +3,10 @@ require './lib/bike_container'
 class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer do 
-	let(:bike) { double :bike, break!: true, broken?: false}
+	let(:bike) { double :bike, break!: true, broken?: false, is_a?: "i'm a bike"}
 	let(:broken_bike) { double :bike, break!: true, broken?: true }
 	let(:holder){ContainerHolder.new}
+	let(:other) { double :other}
 
 	def fill_holder(holder)
 		10.times{holder.dock(bike)}
@@ -63,9 +64,9 @@ describe BikeContainer do
 		expect{holder.release(nil)}.to raise_error(RuntimeError, 'No argument passed')
 	end	
 
-	it 'should not accept an argument that is not a bike' do 
-		expect{holder.release(other)}.to raise_error(RuntimeError, 'I only release bikes')
-	end		
-
+	it 'should not accept an argument that is not a bike' do
+		dock_bike(bike)
+		expect{holder.release(other)}. to raise_error(RuntimeError, 'I only release bikes')
+	end
 end
 
