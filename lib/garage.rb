@@ -1,7 +1,6 @@
 require_relative 'bike_container'
 
 class Garage
-
 	include BikeContainer
 
 	DEFAULT_CAPACITY = 10
@@ -14,6 +13,4 @@ class Garage
 		bike.fix!
 		dock(bike)
 	end
-
-	
 end
