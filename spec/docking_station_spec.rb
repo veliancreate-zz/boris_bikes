@@ -8,6 +8,4 @@ describe DockingStation do
 		expect(station.capacity).to eq(123)
 	end
 		
-	
-
 end

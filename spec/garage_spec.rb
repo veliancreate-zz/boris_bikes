@@ -16,5 +16,4 @@ class ContainerHolder; include BikeContainer; end
 		it 'should repair the bike' do
 			expect(bike.fix!).not_to be_broken
 		end
-
 	end

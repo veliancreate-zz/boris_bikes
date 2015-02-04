@@ -1,3 +1,4 @@
+
 require './lib/bike_container'
 
 class ContainerHolder; include BikeContainer; end
@@ -11,3 +12,4 @@ describe BikeContainer do
 		expect(holder.bike_count).to eq(1)
 	end	
 end	
+
