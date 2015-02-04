@@ -37,6 +37,10 @@ describe BikeContainer do
 		expect(holder.available_bikes).to eq([bike])
 	end
 
+	it 'should know when it\'s empty' do 
+		expect(holder).to be_empty
+	end
+
 	
 
 end
