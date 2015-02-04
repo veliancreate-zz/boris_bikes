@@ -36,7 +36,7 @@ describe BikeContainer do
 
 	it 'should not accept a bike if it\'s full' do
   		fill_holder(holder)
-  		expect(lambda { holder.dock(bike) }).to raise_error(RuntimeError, 'Station is full')
+  		expect{holder.dock(bike)}.to raise_error(RuntimeError, 'Station is full')
 	end
 
 	it "should provide the list of available bikes" do
@@ -50,7 +50,13 @@ describe BikeContainer do
 		expect(holder).to be_empty
 	end
 
+	it 'should not release a bike that is not there' do 
+		holder.bike_count.times{holder.release(bike)}
+		expect{holder.release(bike)}.to raise_error(RuntimeError, 'No bikes available')
+	end	
 
-
+	it 'should not accept an empty argument' do 
+		expect{holder.release(nil)}.to raise_error(RuntimeError, 'No argument passed')
+	end	
 end
 
