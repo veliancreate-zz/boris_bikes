@@ -21,7 +21,7 @@ module BikeContainer
 
 	def dock(bike)
 		raise 'Station is full' if full?
-		bikes << bike
+		bikes<<bike
 	end
 
 	def release(bike)

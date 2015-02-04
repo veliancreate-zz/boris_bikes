@@ -68,5 +68,10 @@ describe BikeContainer do
 		dock_bike(bike)
 		expect{holder.release(other)}. to raise_error(RuntimeError, 'I only release bikes')
 	end
+
+	it 'dock should not accept an argument that is not a bike' do
+		holder.release(bike)
+		expect{holder.dock(other).to raise_error(RuntimeError, 'I only dock bikes')}
+	end	
 end
 
