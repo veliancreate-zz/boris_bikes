@@ -15,6 +15,10 @@ describe BikeContainer do
 		holder.dock(bike)
 	end	
 
+	def class_test(bike)
+
+	end	
+
 	it 'should accept a bike' do 
 		expect(holder.bike_count).to eq(0)
 		dock_bike(bike)
@@ -58,5 +62,10 @@ describe BikeContainer do
 	it 'should not accept an empty argument' do 
 		expect{holder.release(nil)}.to raise_error(RuntimeError, 'No argument passed')
 	end	
+
+	it 'should not accept an argument that is not a bike' do 
+		expect{holder.release(other)}.to raise_error(RuntimeError, 'I only release bikes')
+	end		
+
 end
 
