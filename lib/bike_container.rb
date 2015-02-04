@@ -25,9 +25,15 @@ module BikeContainer
 	end
 
 	def release(bike)
-		raise 'No argument passed' if bike==nil
-		raise 'No bikes available' if empty?
-		bikes.delete(bike)
+		if bike.is_a? Bike
+			raise 'No bikes available' if empty?
+			bikes.delete(bike)
+		elsif bike==nil
+			raise 'No argument passed'
+		else
+			raise 'I only release bikes'
+		end
+		
 	end
 
 	def full?
