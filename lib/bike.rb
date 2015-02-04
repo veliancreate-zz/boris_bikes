@@ -1,7 +1,7 @@
 class Bike
-    #Initialize the method
+
     def initialize
-        fix!()
+        fix!
     end
 
     def broken?
@@ -18,5 +18,4 @@ class Bike
         self
     end
 end
-
 

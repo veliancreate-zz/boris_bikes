@@ -1,15 +1,11 @@
-require './lib/bike_container'
+require './lib/docking_station'
 
-class ContainerHolder; include BikeContainer; end
+	describe DockingStation do
+		let (:station)     { DockingStation.new(capacity: 123)}
 
-describe BikeContainer do
+		it 'should allow setting default capacity on initialising' do
+			expect(station.capacity).to eq(123)
+		end
 
- let(:bike) { Bike.new }
- let(:holder) { ContainerHolder.new }
+	end	
 
- it 'should accept a bike' do
-   expect(holder.bike_count).to eq(0)
-   holder.dock(bike)
-   expect(holder.bike_count).to eq(1)
- end
-end
