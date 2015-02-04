@@ -1,6 +1,7 @@
 
 module BikeContainer
 
+
 	DEFAULT_CAPACITY = 10
 
 	def bikes
@@ -15,9 +16,19 @@ module BikeContainer
 		@capacity = value
 	end
 
+	def broken_bikes
+		@broken_bikes ||= []
+	end	
+
+	def broken_bikes_count
+		broken_bikes.count
+	end	
+
 	def bike_count
 		bikes.count
 	end
+
+
 
 	def dock(bike)
 		raise 'Station is full' if full?
@@ -46,6 +57,10 @@ module BikeContainer
 
 	def empty?
 		bike_count == 0
+	end	
+
+	def broken_bike_number
+		broken_bikes_count
 	end	
 
 end	
