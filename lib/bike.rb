@@ -1,7 +1,7 @@
 class Bike
     #Initialize the method
     def initialize
-        fix!()
+        fix!
     end
 
     def broken?
