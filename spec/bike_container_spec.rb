@@ -3,8 +3,8 @@ require './lib/bike_container'
 class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer do 
-	let(:bike){Bike.new}
-	let(:broken_bike){Bike.new}
+	let(:bike) { double :bike, break!: true, broken?: false}
+	let(:broken_bike) { double :bike, break!: true, broken?: true }
 	let(:holder){ContainerHolder.new}
 	it 'should accept a bike' do 
 		expect(holder.bike_count).to eq(0)
@@ -41,7 +41,7 @@ describe BikeContainer do
 		expect(holder).to be_empty
 	end
 
-	
+
 
 end
 
